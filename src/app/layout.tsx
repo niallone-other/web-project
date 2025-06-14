@@ -10,7 +10,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ChakraProvider } from "@/providers/chakra-provider";
+import { Providers } from "@/providers";
 
 /**
  * Inter font configuration
@@ -47,7 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ChakraProvider>{children}</ChakraProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
