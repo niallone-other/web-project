@@ -102,7 +102,7 @@ export function Header() {
           </HStack>
           
           {/* Right side - User Info */}
-          <UserInfo compact showEditButton={false} />
+          <UserInfo compact showEditButton />
         </HStack>
       </Container>
     </Box>

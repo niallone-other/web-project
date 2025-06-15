@@ -18,6 +18,7 @@ import {
 } from '@chakra-ui/react'
 import { useAuth } from '@/hooks'
 import { EditProfileDrawer } from './edit-profile-drawer'
+import { componentColors, colorSchemes } from '@/lib/theme'
 
 /**
  * Props for the UserInfo component
@@ -74,7 +75,18 @@ export function UserInfo({
         </VStack>
         {showEditButton && (
           <EditProfileDrawer>
-            <Button size="xs" variant="outline">
+            <Button 
+              size="xs" 
+              variant="outline"
+              colorScheme={colorSchemes.primary}
+              color={componentColors.text.primary}
+              borderColor={componentColors.border.default}
+              px={4}
+              _hover={{
+                bg: 'whiteAlpha.100',
+                borderColor: componentColors.border.hover
+              }}
+            >
               Edit
             </Button>
           </EditProfileDrawer>
@@ -108,9 +120,16 @@ export function UserInfo({
         {showEditButton && (
           <EditProfileDrawer>
             <Button
-              colorScheme="green"
+              colorScheme={colorSchemes.primary}
               variant="outline"
               size="md"
+              color={componentColors.text.primary}
+              borderColor={componentColors.border.default}
+              px={6}
+              _hover={{
+                bg: 'whiteAlpha.100',
+                borderColor: componentColors.border.hover
+              }}
             >
               Edit Profile
             </Button>
