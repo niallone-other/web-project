@@ -65,10 +65,10 @@ export function UserInfo({
     return (
       <HStack gap={4}>
         <VStack align="flex-start" gap={0}>
-          <Text fontWeight="bold" fontSize="sm">
+          <Text fontWeight="bold" fontSize="sm" color="white">
             {user.username}
           </Text>
-          <Text fontSize="xs" color="gray.600">
+          <Text fontSize="xs" color="gray.400">
             {user.jobTitle}
           </Text>
         </VStack>
@@ -88,19 +88,19 @@ export function UserInfo({
     <Box>
       <VStack align="stretch" gap={4}>
         <Box>
-          <Text fontSize="sm" color="gray.600" mb={1}>
+          <Text fontSize="sm" color="gray.400" mb={1}>
             Username
           </Text>
-          <Text fontSize="lg" fontWeight="medium">
+          <Text fontSize="lg" fontWeight="medium" color="white">
             {user.username}
           </Text>
         </Box>
         
         <Box>
-          <Text fontSize="sm" color="gray.600" mb={1}>
+          <Text fontSize="sm" color="gray.400" mb={1}>
             Job Title
           </Text>
-          <Text fontSize="lg" fontWeight="medium">
+          <Text fontSize="lg" fontWeight="medium" color="white">
             {user.jobTitle}
           </Text>
         </Box>
@@ -108,7 +108,7 @@ export function UserInfo({
         {showEditButton && (
           <EditProfileDrawer>
             <Button
-              colorScheme="blue"
+              colorScheme="green"
               variant="outline"
               size="md"
             >

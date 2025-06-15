@@ -61,8 +61,8 @@ export function CharacterGrid({
     return (
       <Center minHeight="400px">
         <VStack gap={4}>
-          <Spinner size="xl" color="blue.500" />
-          <Text color="gray.600">Loading characters...</Text>
+          <Spinner size="xl" color="green.500" />
+          <Text color="gray.400">Loading characters...</Text>
         </VStack>
       </Center>
     )
@@ -76,7 +76,7 @@ export function CharacterGrid({
           <Text fontSize="lg" color="red.500" fontWeight="medium">
             Error loading characters
           </Text>
-          <Text color="gray.600" textAlign="center">
+          <Text color="gray.400" textAlign="center">
             {error.message || 'Something went wrong. Please try again.'}
           </Text>
         </VStack>
@@ -89,7 +89,7 @@ export function CharacterGrid({
     return (
       <Center minHeight="400px">
         <VStack gap={2}>
-          <Text fontSize="lg" color="gray.600" fontWeight="medium">
+          <Text fontSize="lg" color="gray.400" fontWeight="medium">
             No characters found
           </Text>
           <Text color="gray.500" textAlign="center">
