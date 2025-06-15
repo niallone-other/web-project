@@ -1,0 +1,41 @@
+/**
+ * Global CSS Styles
+ * 
+ * Minimal CSS reset to ensure consistent styling across browsers
+ * and proper integration with Chakra UI's component system.
+ * 
+ * Most styling is handled through Chakra UI's theme and component props,
+ * keeping this file minimal as per the "minimal dependencies" requirement.
+ */
+
+/* 
+ * CSS Reset
+ * Ensures consistent box model and removes default browser spacing
+ */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* 
+ * Viewport constraints
+ * Prevents horizontal scrolling and ensures full viewport usage
+ */
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+/* 
+ * Link reset
+ * Removes default link styling to allow Chakra UI components
+ * to handle link appearance consistently
+ */
+a {
+  color: inherit;
+  text-decoration: none;
+}
