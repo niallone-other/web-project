@@ -8,3 +8,4 @@
 
 export * from './character-card'
 export * from './character-grid'
+export * from './character-modal'
