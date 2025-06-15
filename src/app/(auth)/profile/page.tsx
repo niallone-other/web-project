@@ -55,23 +55,6 @@ export default function ProfilePage() {
           >
             <UserInfo showEditButton />
           </Box>
-          
-          <HStack gap={4}>
-            <Button
-              onClick={handleBackToInfo}
-              variant="outline"
-            >
-              Back to Information
-            </Button>
-            
-            <Button
-              onClick={handleLogout}
-              colorScheme="red"
-              variant="outline"
-            >
-              Logout
-            </Button>
-          </HStack>
         </Box>
       </Container>
     </Box>

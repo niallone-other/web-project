@@ -138,7 +138,7 @@ export function CharacterModal({ character, isOpen, onClose }: CharacterModalPro
         <DialogBody px={6} pb={6}>
           <Grid templateColumns={{ base: '1fr', md: '200px 1fr' }} gap={6}>
             {/* Image Column */}
-            <VStack align="stretch" gap={4}>
+            <VStack align="stretch" gap={4} pt={4}>
               <Image
                 src={fullCharacter.image}
                 alt={fullCharacter.name}
@@ -157,7 +157,7 @@ export function CharacterModal({ character, isOpen, onClose }: CharacterModalPro
             </VStack>
 
             {/* Info Column */}
-            <VStack align="stretch" gap={4}>
+            <VStack align="stretch" gap={4} pt={4}>
               {/* Basic Info */}
               <Box>
                 <Text {...textStyles.heading} mb={2}>Basic Information</Text>
