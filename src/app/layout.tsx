@@ -11,7 +11,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/providers";
-import { Footer, DevTools } from "@/components/common";
+import { Footer } from "@/components/common";
 
 /**
  * Inter font configuration
@@ -49,7 +49,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <DevTools />
           <div style={{ minHeight: '100vh', paddingBottom: '80px' }}>
             {children}
           </div>

@@ -9,8 +9,9 @@
 
 'use client'
 
-import { Box, Container, Text, HStack, Link } from '@chakra-ui/react'
+import { Box, Container, Text, HStack, Link, Button } from '@chakra-ui/react'
 import NextLink from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useAuth } from '@/hooks'
 
 /**
@@ -35,7 +36,13 @@ const CHALLENGE_VERSION = '1.0.0'
  * ```
  */
 export function Footer() {
-  const { user } = useAuth()
+  const { user, logout } = useAuth()
+  const router = useRouter()
+  
+  const handleLogout = () => {
+    logout()
+    router.push('/auth')
+  }
   
   return (
     <Box
@@ -62,6 +69,15 @@ export function Footer() {
                 <Link as={NextLink} href="/profile" color="blue.500">
                   Profile
                 </Link>
+                <Box width="1px" height="20px" bg="gray.300" />
+                <Button
+                  size="xs"
+                  variant="ghost"
+                  colorScheme="red"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </Button>
                 <Box width="1px" height="20px" bg="gray.300" />
               </>
             )}
