@@ -9,10 +9,8 @@
 
 'use client'
 
-import { Container, Box, Heading, Button, HStack } from '@chakra-ui/react'
-import { useRouter } from 'next/navigation'
+import { Container, Box, Heading } from '@chakra-ui/react'
 import { UserInfo } from '@/components/user'
-import { useAuth } from '@/hooks'
 
 /**
  * Profile page component
@@ -26,18 +24,6 @@ import { useAuth } from '@/hooks'
  * @returns {JSX.Element} The profile page
  */
 export default function ProfilePage() {
-  const { logout } = useAuth()
-  const router = useRouter()
-
-  const handleLogout = () => {
-    logout()
-    router.push('/auth')
-  }
-
-  const handleBackToInfo = () => {
-    router.push('/information')
-  }
-
   return (
     <Box minHeight="calc(100vh - 80px)">
       <Container size="sm" py={10} mx="auto" px={4}>
