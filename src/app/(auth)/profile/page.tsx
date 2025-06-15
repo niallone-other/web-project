@@ -40,7 +40,7 @@ export default function ProfilePage() {
 
   return (
     <Box bg="gray.50" minHeight="calc(100vh - 80px)">
-      <Container size="sm" py={10} mx="auto">
+      <Container size="sm" py={10} mx="auto" px={4}>
         <Box>
           <Heading size="lg" mb={8}>
             My Profile

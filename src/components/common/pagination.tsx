@@ -84,6 +84,7 @@ export function Pagination({
           onClick={() => goToPage(1)}
           disabled={isFirstPage}
           aria-label="Go to first page"
+          px={4}
         >
           First
         </Button>
@@ -95,6 +96,7 @@ export function Pagination({
           onClick={() => goToPage(currentPage - 1)}
           disabled={isFirstPage}
           aria-label="Go to previous page"
+          px={4}
         >
           Previous
         </Button>
@@ -115,6 +117,7 @@ export function Pagination({
           onClick={() => goToPage(currentPage + 1)}
           disabled={isLastPage}
           aria-label="Go to next page"
+          px={4}
         >
           Next
         </Button>
@@ -126,6 +129,7 @@ export function Pagination({
           onClick={() => goToPage(totalPages)}
           disabled={isLastPage}
           aria-label="Go to last page"
+          px={4}
         >
           Last
         </Button>

@@ -128,6 +128,8 @@ export function UserForm({
               placeholder="Enter your username"
               size="lg"
               disabled={isLoading}
+              autoComplete="username"
+              px={4}
             />
             {errors.username && (
               <Text color="red.500" fontSize="sm" mt={1}>
@@ -146,6 +148,8 @@ export function UserForm({
               placeholder="Enter your job title"
               size="lg"
               disabled={isLoading}
+              autoComplete="organization-title"
+              px={4}
             />
             {errors.jobTitle && (
               <Text color="red.500" fontSize="sm" mt={1}>

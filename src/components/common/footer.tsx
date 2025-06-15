@@ -54,7 +54,7 @@ export function Footer() {
       py={4}
       zIndex={10}
     >
-      <Container size="xl" mx="auto">
+      <Container size="xl" mx="auto" px={4}>
         <HStack justify="space-between" wrap="wrap" gap={4}>
           <Text color="gray.600" fontSize="sm">
             {APP_CONFIG.copyright}

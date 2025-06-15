@@ -105,7 +105,7 @@ export function CharacterModal({ character, isOpen, onClose }: CharacterModalPro
         maxHeight="90vh"
         overflow="auto"
       >
-        <DialogHeader>
+        <DialogHeader px={6} py={4}>
           <DialogTitle>{fullCharacter.name}</DialogTitle>
           <DialogCloseTrigger asChild>
             <Button
@@ -121,7 +121,7 @@ export function CharacterModal({ character, isOpen, onClose }: CharacterModalPro
           </DialogCloseTrigger>
         </DialogHeader>
 
-        <DialogBody pb={6}>
+        <DialogBody px={6} pb={6}>
           <Grid templateColumns={{ base: '1fr', md: '200px 1fr' }} gap={6}>
             {/* Image Column */}
             <VStack align="stretch" gap={4}>

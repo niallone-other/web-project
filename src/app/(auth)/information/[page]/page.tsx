@@ -60,12 +60,12 @@ export default function InformationPage() {
 
   return (
     <Box bg="gray.50" minHeight="calc(100vh - 80px)">
-      <Container size="xl" py={8} mx="auto">
+      <Container size="xl" py={8} mx="auto" px={4}>
         <VStack gap={8} align="stretch">
           {/* Header */}
           <Box>
             <HStack justify="space-between" wrap="wrap" gap={4} mb={4}>
-              <Heading size="xl">Character Information</Heading>
+              <Heading size="xl">Rick and Morty Characters</Heading>
               <UserInfo compact />
             </HStack>
             
