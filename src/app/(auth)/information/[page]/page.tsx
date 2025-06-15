@@ -59,8 +59,8 @@ export default function InformationPage() {
   }
 
   return (
-    <>
-      <Container maxW="container.xl" py={8}>
+    <Box bg="gray.50" minHeight="calc(100vh - 80px)">
+      <Container size="xl" py={8} mx="auto">
         <VStack gap={8} align="stretch">
           {/* Header */}
           <Box>
@@ -103,6 +103,6 @@ export default function InformationPage() {
         isOpen={!!selectedCharacter}
         onClose={handleModalClose}
       />
-    </>
+    </Box>
   )
 }

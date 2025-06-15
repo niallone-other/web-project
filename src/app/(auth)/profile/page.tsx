@@ -39,7 +39,8 @@ export default function ProfilePage() {
   }
 
   return (
-    <Container maxW="container.sm" py={10}>
+    <Box bg="gray.50" minHeight="calc(100vh - 80px)">
+      <Container size="sm" py={10} mx="auto">
         <Box>
           <Heading size="lg" mb={8}>
             My Profile
@@ -72,6 +73,7 @@ export default function ProfilePage() {
             </Button>
           </HStack>
         </Box>
-    </Container>
+      </Container>
+    </Box>
   )
 }

@@ -53,8 +53,8 @@ export default function AuthPage() {
   }
 
   return (
-    <Box minHeight="100vh" bg="gray.50">
-      <Container maxW="container.sm" py={20}>
+    <Box minHeight="calc(100vh - 80px)" bg="gray.50" display="flex" alignItems="center">
+      <Container size="sm" py={8} mx="auto">
         <VStack gap={8}>
           <VStack gap={2} textAlign="center">
             <Text fontSize="3xl" fontWeight="bold">
