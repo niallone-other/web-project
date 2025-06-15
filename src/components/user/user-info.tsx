@@ -65,14 +65,6 @@ export function UserInfo({
   if (compact) {
     return (
       <HStack gap={4}>
-        <VStack align="flex-start" gap={0}>
-          <Text fontWeight="bold" fontSize="sm" color="white">
-            {user.username}
-          </Text>
-          <Text fontSize="xs" color="gray.400">
-            {user.jobTitle}
-          </Text>
-        </VStack>
         {showEditButton && (
           <EditProfileDrawer>
             <Button 
@@ -91,6 +83,14 @@ export function UserInfo({
             </Button>
           </EditProfileDrawer>
         )}
+        <VStack align="flex-end" gap={0}>
+          <Text fontWeight="bold" fontSize="sm" color="white">
+            {user.username}
+          </Text>
+          <Text fontSize="xs" color="gray.400">
+            {user.jobTitle}
+          </Text>
+        </VStack>
       </HStack>
     )
   }

@@ -16,6 +16,7 @@ import {
 } from '@chakra-ui/react'
 import { UserForm } from '@/components/auth'
 import { useAuth } from '@/hooks'
+import { componentColors, textStyles } from '@/lib/theme'
 import type { LoginFormData } from '@/types'
 
 /**
@@ -75,9 +76,18 @@ export function EditProfileDrawer({ children }: EditProfileDrawerProps) {
       </Drawer.Trigger>
       <Drawer.Backdrop />
       <Drawer.Positioner>
-        <Drawer.Content>
-          <Drawer.Header px={6} py={4}>
-            <Drawer.Title>Edit Profile</Drawer.Title>
+        <Drawer.Content 
+          bg={componentColors.background.secondary}
+          borderLeft="1px solid"
+          borderColor={componentColors.border.default}
+        >
+          <Drawer.Header 
+            px={6} 
+            py={4}
+            borderBottom="1px solid"
+            borderColor={componentColors.border.default}
+          >
+            <Drawer.Title {...textStyles.heading}>Edit Profile</Drawer.Title>
             <Drawer.CloseTrigger asChild>
               <Button
                 size="sm"
@@ -86,6 +96,11 @@ export function EditProfileDrawer({ children }: EditProfileDrawerProps) {
                 right={2}
                 top={2}
                 aria-label="Close drawer"
+                color={componentColors.text.secondary}
+                _hover={{
+                  bg: 'whiteAlpha.100',
+                  color: componentColors.text.primary
+                }}
               >
                 ✕
               </Button>

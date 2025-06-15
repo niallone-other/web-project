@@ -29,6 +29,7 @@ import {
 } from '@chakra-ui/react'
 import { useQuery } from '@apollo/client'
 import { GET_CHARACTER } from '@/lib/apollo'
+import { componentColors, textStyles } from '@/lib/theme'
 import type { Character, CharacterData } from '@/types'
 
 /**
@@ -104,9 +105,17 @@ export function CharacterModal({ character, isOpen, onClose }: CharacterModalPro
         maxWidth="600px"
         maxHeight="90vh"
         overflow="auto"
+        bg={componentColors.background.secondary}
+        border="1px solid"
+        borderColor={componentColors.border.default}
       >
-        <DialogHeader px={6} py={4}>
-          <DialogTitle>{fullCharacter.name}</DialogTitle>
+        <DialogHeader 
+          px={6} 
+          py={4}
+          borderBottom="1px solid"
+          borderColor={componentColors.border.default}
+        >
+          <DialogTitle {...textStyles.heading}>{fullCharacter.name}</DialogTitle>
           <DialogCloseTrigger asChild>
             <Button
               size="sm"
@@ -115,6 +124,11 @@ export function CharacterModal({ character, isOpen, onClose }: CharacterModalPro
               right={2}
               top={2}
               aria-label="Close modal"
+              color={componentColors.text.secondary}
+              _hover={{
+                bg: 'whiteAlpha.100',
+                color: componentColors.text.primary
+              }}
             >
               ✕
             </Button>
@@ -146,40 +160,40 @@ export function CharacterModal({ character, isOpen, onClose }: CharacterModalPro
             <VStack align="stretch" gap={4}>
               {/* Basic Info */}
               <Box>
-                <Text fontWeight="bold" mb={2}>Basic Information</Text>
+                <Text {...textStyles.heading} mb={2}>Basic Information</Text>
                 <VStack align="start" gap={1}>
-                  <Text><strong>Species:</strong> {fullCharacter.species}</Text>
+                  <Text color={componentColors.text.secondary}><strong>Species:</strong> {fullCharacter.species}</Text>
                   {fullCharacter.type && (
-                    <Text><strong>Type:</strong> {fullCharacter.type}</Text>
+                    <Text color={componentColors.text.secondary}><strong>Type:</strong> {fullCharacter.type}</Text>
                   )}
-                  <Text><strong>Gender:</strong> {fullCharacter.gender}</Text>
+                  <Text color={componentColors.text.secondary}><strong>Gender:</strong> {fullCharacter.gender}</Text>
                 </VStack>
               </Box>
 
               {/* Location Info */}
               <Box>
-                <Text fontWeight="bold" mb={2}>Location</Text>
+                <Text {...textStyles.heading} mb={2}>Location</Text>
                 <VStack align="start" gap={1}>
-                  <Text><strong>Origin:</strong> {fullCharacter.origin.name}</Text>
-                  <Text><strong>Last Seen:</strong> {fullCharacter.location.name}</Text>
+                  <Text color={componentColors.text.secondary}><strong>Origin:</strong> {fullCharacter.origin.name}</Text>
+                  <Text color={componentColors.text.secondary}><strong>Last Seen:</strong> {fullCharacter.location.name}</Text>
                 </VStack>
               </Box>
 
               {/* Episodes */}
               {data?.character.episode && data.character.episode.length > 0 && (
                 <Box>
-                  <Text fontWeight="bold" mb={2}>
+                  <Text {...textStyles.heading} mb={2}>
                     Episodes ({data.character.episode.length})
                   </Text>
                   <Box maxHeight="200px" overflowY="auto">
                     <VStack align="start" gap={1}>
                       {data.character.episode.slice(0, 10).map((ep) => (
-                        <Text key={ep.id} fontSize="sm">
+                        <Text key={ep.id} fontSize="sm" color={componentColors.text.secondary}>
                           {ep.episode} - {ep.name}
                         </Text>
                       ))}
                       {data.character.episode.length > 10 && (
-                        <Text fontSize="sm" color="gray.600">
+                        <Text fontSize="sm" color={componentColors.text.muted}>
                           ...and {data.character.episode.length - 10} more episodes
                         </Text>
                       )}
@@ -189,7 +203,7 @@ export function CharacterModal({ character, isOpen, onClose }: CharacterModalPro
               )}
 
               {loading && !data && (
-                <Text color="gray.600" fontSize="sm">
+                <Text color={componentColors.text.muted} fontSize="sm">
                   Loading additional details...
                 </Text>
               )}
