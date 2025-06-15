@@ -64,7 +64,6 @@ export const apolloClient = new ApolloClient({
               }
               
               // For pagination, keep track of pages
-              const page = args.page || 1
               return {
                 ...incoming,
                 results: [...(incoming?.results || [])],
