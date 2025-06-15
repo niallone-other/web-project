@@ -70,7 +70,7 @@ export default function AuthPage() {
         css={animationUtils.floatGradient('20s')}
       />
       
-      <Container size="sm" py={8} mx="auto" px={4} position="relative" zIndex={1}>
+      <Container maxW="container.sm" py={8} mx="auto" px={4} position="relative" zIndex={1}>
         <VStack gap={8}>
           <VStack gap={2} textAlign="center">
             <Text {...textStyles.headingLarge}>
@@ -88,7 +88,6 @@ export default function AuthPage() {
             boxShadow="xl"
             border="1px solid"
             borderColor="gray.100"
-            position="relative"
             overflow="hidden"
             {...effectStyles.portalBorder}
           >

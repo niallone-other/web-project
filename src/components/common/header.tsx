@@ -45,7 +45,7 @@ export function Header() {
       backdropFilter="blur(10px)"
       boxShadow="sm"
     >
-      <Container size="xl" py={4} px={4} mx="auto">
+      <Container maxW="container.xl" py={4} px={4} mx="auto">
         <HStack justify="space-between" wrap="wrap" gap={4}>
           {/* Left side - Branding */}
           <HStack gap={3}>
