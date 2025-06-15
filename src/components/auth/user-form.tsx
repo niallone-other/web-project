@@ -16,9 +16,8 @@ import {
   Input,
   VStack,
   Text,
-  Heading,
 } from '@chakra-ui/react'
-import { componentColors, textStyles } from '@/lib/theme'
+import { componentColors } from '@/lib/theme'
 import type { LoginFormData } from '@/types'
 
 /**
@@ -62,7 +61,6 @@ export function UserForm({
   onSubmit,
   initialValues = { username: '', jobTitle: '' },
   submitText = 'Submit',
-  title = 'Enter Your Details',
   isLoading = false,
 }: UserFormProps) {
   const [formData, setFormData] = useState<LoginFormData>(initialValues)

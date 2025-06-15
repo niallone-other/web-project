@@ -11,7 +11,7 @@
 
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { Box, Spinner, Center } from '@chakra-ui/react'
+import { Spinner, Center } from '@chakra-ui/react'
 import { useAuth } from '@/hooks'
 
 /**
