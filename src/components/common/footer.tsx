@@ -9,7 +9,7 @@
 
 'use client'
 
-import { Box, Container, Text, HStack, Link, Button } from '@chakra-ui/react'
+import { Box, Container, Text, HStack, Link } from '@chakra-ui/react'
 import NextLink from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/hooks'
