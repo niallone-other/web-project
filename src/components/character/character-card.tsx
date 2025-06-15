@@ -10,6 +10,7 @@
 'use client'
 
 import { Box, Image, Text, VStack, HStack, Badge } from '@chakra-ui/react'
+import { componentColors, layerStyles } from '@/lib/theme'
 import type { Character } from '@/types'
 
 /**
@@ -64,16 +65,8 @@ export function CharacterCard({ character, onClick }: CharacterCardProps) {
 
   return (
     <Box
-      bg="white"
-      borderRadius="lg"
-      overflow="hidden"
-      boxShadow="md"
-      transition="all 0.2s"
+      {...(onClick ? layerStyles.cardHover : layerStyles.card)}
       cursor={onClick ? 'pointer' : 'default'}
-      _hover={onClick ? {
-        transform: 'translateY(-4px)',
-        boxShadow: 'lg',
-      } : {}}
       onClick={handleClick}
       role={onClick ? 'button' : undefined}
       tabIndex={onClick ? 0 : undefined}
@@ -100,17 +93,17 @@ export function CharacterCard({ character, onClick }: CharacterCardProps) {
       
       {/* Character Info */}
       <VStack align="stretch" p={4} gap={2}>
-        <Text fontWeight="bold" fontSize="lg" noOfLines={1}>
+        <Text fontWeight="bold" fontSize="lg" noOfLines={1} color={componentColors.text.primary}>
           {character.name}
         </Text>
         
         <HStack justify="space-between" align="flex-start">
           <VStack align="start" gap={1} flex={1}>
-            <Text fontSize="sm" color="gray.600" noOfLines={1}>
+            <Text fontSize="sm" color={componentColors.text.secondary} noOfLines={1}>
               {character.species}
               {character.type && ` - ${character.type}`}
             </Text>
-            <Text fontSize="xs" color="gray.500" noOfLines={1}>
+            <Text fontSize="xs" color={componentColors.text.muted} noOfLines={1}>
               {character.location.name}
             </Text>
           </VStack>

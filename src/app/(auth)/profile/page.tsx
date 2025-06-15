@@ -39,15 +39,15 @@ export default function ProfilePage() {
   }
 
   return (
-    <Box bg="gray.50" minHeight="calc(100vh - 80px)">
+    <Box minHeight="calc(100vh - 80px)">
       <Container size="sm" py={10} mx="auto" px={4}>
         <Box>
-          <Heading size="lg" mb={8}>
+          <Heading size="lg" mb={8} color="white">
             My Profile
           </Heading>
           
           <Box
-            bg="white"
+            bg="gray.700"
             p={6}
             borderRadius="lg"
             boxShadow="sm"
