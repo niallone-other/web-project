@@ -9,3 +9,5 @@
 export * from './footer'
 export * from './pagination'
 export * from './app-layout'
+export * from './header'
+export * from './portal-background'

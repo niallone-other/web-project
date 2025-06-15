@@ -24,7 +24,7 @@ const inter = Inter({ subsets: ["latin"] });
  */
 export const metadata: Metadata = {
   title: "The Portal",
-  description: "Authorized access to interdimensional data",
+  description: "Authorised access to interdimensional data",
 };
 
 /**

@@ -11,6 +11,7 @@
 
 import { HStack, Button, Text, Box } from '@chakra-ui/react'
 import { useRouter } from 'next/navigation'
+import { colorSchemes, componentColors } from '@/lib/theme'
 
 /**
  * Props for the Pagination component
@@ -73,6 +74,21 @@ export function Pagination({
 
   const isFirstPage = currentPage === 1
   const isLastPage = currentPage === totalPages
+  
+  // Button style for dark theme
+  const buttonStyle = {
+    color: componentColors.text.primary,
+    _hover: { 
+      bg: 'whiteAlpha.100',
+      borderColor: 'green.400'
+    },
+    _disabled: {
+      color: componentColors.text.disabled,
+      borderColor: componentColors.border.default,
+      cursor: 'not-allowed',
+      opacity: 0.6
+    }
+  }
 
   return (
     <Box width="100%">
@@ -81,9 +97,12 @@ export function Pagination({
         <Button
           size="sm"
           variant="outline"
+          colorScheme={colorSchemes.primary}
           onClick={() => goToPage(1)}
           disabled={isFirstPage}
           aria-label="Go to first page"
+          px={4}
+          {...buttonStyle}
         >
           First
         </Button>
@@ -92,9 +111,12 @@ export function Pagination({
         <Button
           size="sm"
           variant="outline"
+          colorScheme={colorSchemes.primary}
           onClick={() => goToPage(currentPage - 1)}
           disabled={isFirstPage}
           aria-label="Go to previous page"
+          px={4}
+          {...buttonStyle}
         >
           Previous
         </Button>
@@ -102,7 +124,7 @@ export function Pagination({
         {/* Page Info */}
         {showPageInfo && (
           <Box px={4}>
-            <Text fontSize="sm" fontWeight="medium">
+            <Text fontSize="sm" fontWeight="medium" color={componentColors.text.primary}>
               Page {currentPage} of {totalPages}
             </Text>
           </Box>
@@ -112,9 +134,12 @@ export function Pagination({
         <Button
           size="sm"
           variant="outline"
+          colorScheme={colorSchemes.primary}
           onClick={() => goToPage(currentPage + 1)}
           disabled={isLastPage}
           aria-label="Go to next page"
+          px={4}
+          {...buttonStyle}
         >
           Next
         </Button>
@@ -123,9 +148,12 @@ export function Pagination({
         <Button
           size="sm"
           variant="outline"
+          colorScheme={colorSchemes.primary}
           onClick={() => goToPage(totalPages)}
           disabled={isLastPage}
           aria-label="Go to last page"
+          px={4}
+          {...buttonStyle}
         >
           Last
         </Button>

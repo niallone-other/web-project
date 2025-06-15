@@ -11,11 +11,10 @@
 
 import { useState } from 'react'
 import { useParams } from 'next/navigation'
-import { Container, Heading, VStack, Box, HStack, Text } from '@chakra-ui/react'
+import { Container, Heading, VStack, Box, Text } from '@chakra-ui/react'
 import { useQuery } from '@apollo/client'
 import { CharacterGrid, CharacterModal } from '@/components/character'
 import { Pagination } from '@/components/common'
-import { UserInfo } from '@/components/user'
 import { GET_CHARACTERS } from '@/lib/apollo'
 import type { CharactersData, Character } from '@/types'
 
@@ -59,18 +58,14 @@ export default function InformationPage() {
   }
 
   return (
-    <Box bg="gray.50" minHeight="calc(100vh - 80px)">
-      <Container size="xl" py={8} mx="auto">
+    <Box minHeight="calc(100vh - 80px)">
+      <Container size="xl" py={8} mx="auto" px={4}>
         <VStack gap={8} align="stretch">
-          {/* Header */}
+          {/* Page Header */}
           <Box>
-            <HStack justify="space-between" wrap="wrap" gap={4} mb={4}>
-              <Heading size="xl">Character Information</Heading>
-              <UserInfo compact />
-            </HStack>
-            
+            <Heading size="xl" mb={2} color="white">Rick and Morty Characters</Heading>
             {data && (
-              <Text color="gray.600">
+              <Text color="gray.400">
                 Showing {data.characters.results.length} of {data.characters.info.count} characters
               </Text>
             )}

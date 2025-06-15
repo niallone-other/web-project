@@ -16,6 +16,7 @@ import {
 } from '@chakra-ui/react'
 import { UserForm } from '@/components/auth'
 import { useAuth } from '@/hooks'
+import { componentColors, textStyles } from '@/lib/theme'
 import type { LoginFormData } from '@/types'
 
 /**
@@ -48,6 +49,7 @@ interface EditProfileDrawerProps {
 export function EditProfileDrawer({ children }: EditProfileDrawerProps) {
   const { user, updateUser } = useAuth()
   const [isUpdating, setIsUpdating] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   if (!user) {
     return null
@@ -62,25 +64,50 @@ export function EditProfileDrawer({ children }: EditProfileDrawerProps) {
     setIsUpdating(false)
     
     if (success) {
-      // Drawer will close automatically when form submits successfully
-      // This happens because the Drawer.Root component manages its own state
+      // Close drawer on successful update
+      setIsOpen(false)
     }
   }
 
   return (
-    <Drawer.Root size="md">
+    <Drawer.Root size="md" open={isOpen} onOpenChange={(e) => setIsOpen(e.open)}>
       <Drawer.Trigger asChild>
         {children}
       </Drawer.Trigger>
       <Drawer.Backdrop />
       <Drawer.Positioner>
-        <Drawer.Content>
-          <Drawer.Header>
-            <Drawer.Title>Edit Profile</Drawer.Title>
-            <Drawer.CloseTrigger />
+        <Drawer.Content 
+          bg={componentColors.background.secondary}
+          borderLeft="1px solid"
+          borderColor={componentColors.border.default}
+        >
+          <Drawer.Header 
+            px={6} 
+            py={4}
+            borderBottom="1px solid"
+            borderColor={componentColors.border.default}
+          >
+            <Drawer.Title {...textStyles.heading}>Edit Profile</Drawer.Title>
+            <Drawer.CloseTrigger asChild>
+              <Button
+                size="sm"
+                variant="ghost"
+                position="absolute"
+                right={2}
+                top={2}
+                aria-label="Close drawer"
+                color={componentColors.text.secondary}
+                _hover={{
+                  bg: 'whiteAlpha.100',
+                  color: componentColors.text.primary
+                }}
+              >
+                ✕
+              </Button>
+            </Drawer.CloseTrigger>
           </Drawer.Header>
           
-          <Drawer.Body>
+          <Drawer.Body px={6} py={4}>
             <UserForm
               onSubmit={handleUpdate}
               initialValues={{
@@ -92,14 +119,6 @@ export function EditProfileDrawer({ children }: EditProfileDrawerProps) {
               isLoading={isUpdating}
             />
           </Drawer.Body>
-          
-          <Drawer.Footer>
-            <Drawer.ActionTrigger asChild>
-              <Button variant="outline" disabled={isUpdating}>
-                Cancel
-              </Button>
-            </Drawer.ActionTrigger>
-          </Drawer.Footer>
         </Drawer.Content>
       </Drawer.Positioner>
     </Drawer.Root>

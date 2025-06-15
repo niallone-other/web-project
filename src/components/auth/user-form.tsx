@@ -18,6 +18,7 @@ import {
   Text,
   Heading,
 } from '@chakra-ui/react'
+import { componentColors, textStyles } from '@/lib/theme'
 import type { LoginFormData } from '@/types'
 
 /**
@@ -113,13 +114,10 @@ export function UserForm({
   return (
     <Box as="form" onSubmit={handleSubmit} width="100%">
       <VStack gap={6} align="stretch">
-        <Heading size="lg" textAlign="center">
-          {title}
-        </Heading>
         
         <VStack gap={4}>
           <Box width="100%">
-            <Text mb={2} fontWeight="medium">
+            <Text mb={2} fontWeight="medium" color={componentColors.text.lightPrimary}>
               Username
             </Text>
             <Input
@@ -128,6 +126,21 @@ export function UserForm({
               placeholder="Enter your username"
               size="lg"
               disabled={isLoading}
+              autoComplete="username"
+              px={4}
+              bg={componentColors.background.lightInput}
+              borderColor={componentColors.border.default}
+              color={componentColors.text.lightPrimary}
+              _hover={{
+                borderColor: componentColors.border.hover
+              }}
+              _focus={{
+                borderColor: componentColors.border.focus,
+                boxShadow: `0 0 0 1px ${componentColors.border.focus}`
+              }}
+              _placeholder={{
+                color: componentColors.text.muted
+              }}
             />
             {errors.username && (
               <Text color="red.500" fontSize="sm" mt={1}>
@@ -137,7 +150,7 @@ export function UserForm({
           </Box>
           
           <Box width="100%">
-            <Text mb={2} fontWeight="medium">
+            <Text mb={2} fontWeight="medium" color={componentColors.text.lightPrimary}>
               Job Title
             </Text>
             <Input
@@ -146,6 +159,21 @@ export function UserForm({
               placeholder="Enter your job title"
               size="lg"
               disabled={isLoading}
+              autoComplete="organization-title"
+              px={4}
+              bg={componentColors.background.lightInput}
+              borderColor={componentColors.border.default}
+              color={componentColors.text.lightPrimary}
+              _hover={{
+                borderColor: componentColors.border.hover
+              }}
+              _focus={{
+                borderColor: componentColors.border.focus,
+                boxShadow: `0 0 0 1px ${componentColors.border.focus}`
+              }}
+              _placeholder={{
+                color: componentColors.text.muted
+              }}
             />
             {errors.jobTitle && (
               <Text color="red.500" fontSize="sm" mt={1}>
@@ -157,7 +185,7 @@ export function UserForm({
         
         <Button
           type="submit"
-          colorScheme="blue"
+          colorScheme="green"
           size="lg"
           width="100%"
           disabled={isLoading}

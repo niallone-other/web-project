@@ -43,7 +43,7 @@ export default function HomePage() {
     <Center height="100vh">
       <Spinner 
         size="xl" 
-        color="blue.500"
+        color="green.500"
       />
     </Center>
   )

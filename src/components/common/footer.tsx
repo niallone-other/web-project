@@ -14,6 +14,7 @@ import NextLink from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/hooks'
 import { APP_CONFIG } from '@/lib/constants'
+import { componentColors, brandColors } from '@/lib/theme'
 
 /**
  * Footer component displaying app information
@@ -39,7 +40,7 @@ export function Footer() {
   const handleLogout = () => {
     logout()
     router.push('/auth')
-  }
+  };
   
   return (
     <Box
@@ -48,40 +49,30 @@ export function Footer() {
       bottom={0}
       left={0}
       right={0}
-      bg="white"
+      bg={componentColors.background.dark}
       borderTopWidth={1}
-      borderColor="gray.200"
+      borderColor={componentColors.border.dark}
       py={4}
       zIndex={10}
     >
-      <Container size="xl" mx="auto">
-        <HStack justify="space-between" wrap="wrap" gap={4}>
-          <Text color="gray.600" fontSize="sm">
-            {APP_CONFIG.copyright}
-          </Text>
-          
-          <HStack gap={4} fontSize="sm" color="gray.600">
-            {user && (
-              <>
-                <Link as={NextLink} href="/profile" color="blue.500">
-                  Profile
-                </Link>
-                <Box width="1px" height="20px" bg="gray.300" />
-                <Button
-                  size="xs"
-                  variant="ghost"
-                  colorScheme="red"
-                  onClick={handleLogout}
-                >
-                  Logout
-                </Button>
-                <Box width="1px" height="20px" bg="gray.300" />
-              </>
-            )}
-            <Text fontWeight="medium">
-              Version {APP_CONFIG.version}
-            </Text>
-          </HStack>
+      <Container size="xl" mx="auto" px={4}>
+        <HStack justify="flex-end" gap={6} fontSize="sm" color="gray.400">
+          <Text>Version {APP_CONFIG.version}</Text>
+          {user && (
+            <>
+              <Link as={NextLink} href="/profile" color={brandColors.portal.DEFAULT} _hover={{ color: brandColors.portal.dark }}>
+                Profile
+              </Link>
+              <Link 
+                as="button" 
+                onClick={handleLogout} 
+                color={brandColors.portal.DEFAULT} 
+                _hover={{ color: brandColors.portal.dark }}
+              >
+                Logout
+              </Link>
+            </>
+          )}
         </HStack>
       </Container>
     </Box>
