@@ -12,7 +12,7 @@
  */
 export const APP_CONFIG = {
   name: 'The Portal',
-  tagline: 'Authorized access to interdimensional data',
+  tagline: 'Authorised access to interdimensional data',
   version: '1.0.0',
   copyright: '© 2025 The Portal',
   dimension: 'C-137',

@@ -54,23 +54,30 @@ export default function AuthPage() {
 
   return (
     <Box minHeight="calc(100vh - 80px)" bg="gray.50" display="flex" alignItems="center">
-      <Container size="sm" py={8} mx="auto">
+      <Container size="sm" py={8} mx="auto" px={4}>
         <VStack gap={8}>
           <VStack gap={2} textAlign="center">
             <Text fontSize="3xl" fontWeight="bold">
               Welcome to The Portal
             </Text>
             <Text color="gray.600">
-              Authorized personnel only. Please authenticate to continue.
+              Authorised personnel only.
+            </Text>
+            <Text color="gray.600">
+              Please authenticate to continue.
             </Text>
           </VStack>
           
           <Box
             width="100%"
+            maxW="md"
+            mx="auto"
             bg="white"
-            p={8}
-            borderRadius="lg"
-            boxShadow="sm"
+            p={{ base: 6, md: 8 }}
+            borderRadius="xl"
+            boxShadow="lg"
+            border="1px solid"
+            borderColor="gray.100"
           >
             <UserForm
               onSubmit={handleSubmit}
