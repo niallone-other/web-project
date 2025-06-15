@@ -7,3 +7,4 @@
  */
 
 export * from './user-info'
+export * from './edit-profile-drawer'

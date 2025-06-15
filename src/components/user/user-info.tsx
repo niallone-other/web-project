@@ -9,7 +9,6 @@
 
 'use client'
 
-import { useState } from 'react'
 import {
   Box,
   Text,
@@ -18,8 +17,7 @@ import {
   VStack,
 } from '@chakra-ui/react'
 import { useAuth } from '@/hooks'
-import { UserForm } from '@/components/auth'
-import type { LoginFormData } from '@/types'
+import { EditProfileDrawer } from './edit-profile-drawer'
 
 /**
  * Props for the UserInfo component
@@ -29,10 +27,6 @@ interface UserInfoProps {
   compact?: boolean
   /** Whether to show the edit button */
   showEditButton?: boolean
-  /** Whether to show in edit mode */
-  editMode?: boolean
-  /** Callback when edit mode changes */
-  onEditModeChange?: (editMode: boolean) => void
 }
 
 /**
@@ -40,7 +34,7 @@ interface UserInfoProps {
  * 
  * Features:
  * - Displays username and job title
- * - Inline edit mode with UserForm
+ * - Edit capability via drawer
  * - Compact mode for header/navigation use
  * - Full mode for profile pages
  * 
@@ -59,66 +53,11 @@ interface UserInfoProps {
 export function UserInfo({ 
   compact = false, 
   showEditButton = true,
-  editMode: controlledEditMode,
-  onEditModeChange,
 }: UserInfoProps) {
-  const { user, updateUser } = useAuth()
-  const [localEditMode, setLocalEditMode] = useState(false)
-  const [isUpdating, setIsUpdating] = useState(false)
-
-  // Use controlled or local edit mode
-  const editMode = controlledEditMode ?? localEditMode
-  const setEditMode = onEditModeChange ?? setLocalEditMode
+  const { user } = useAuth()
 
   if (!user) {
     return null
-  }
-
-  /**
-   * Handles user info update
-   */
-  const handleUpdate = async (data: LoginFormData) => {
-    setIsUpdating(true)
-    const success = await updateUser(data.username, data.jobTitle)
-    setIsUpdating(false)
-    
-    if (success) {
-      setEditMode(false)
-    }
-  }
-
-  /**
-   * Handles cancel edit
-   */
-  const handleCancel = () => {
-    setEditMode(false)
-  }
-
-  // Edit mode view
-  if (editMode) {
-    return (
-      <Box>
-        <UserForm
-          onSubmit={handleUpdate}
-          initialValues={{
-            username: user.username,
-            jobTitle: user.jobTitle,
-          }}
-          title="Update Your Information"
-          submitText="Save Changes"
-          isLoading={isUpdating}
-        />
-        <Button
-          mt={2}
-          width="100%"
-          variant="ghost"
-          onClick={handleCancel}
-          disabled={isUpdating}
-        >
-          Cancel
-        </Button>
-      </Box>
-    )
   }
 
   // Compact view
@@ -134,9 +73,11 @@ export function UserInfo({
           </Text>
         </VStack>
         {showEditButton && (
-          <Button size="xs" variant="outline" onClick={() => setEditMode(true)}>
-            Edit
-          </Button>
+          <EditProfileDrawer>
+            <Button size="xs" variant="outline">
+              Edit
+            </Button>
+          </EditProfileDrawer>
         )}
       </HStack>
     )
@@ -165,14 +106,15 @@ export function UserInfo({
         </Box>
         
         {showEditButton && (
-          <Button
-            onClick={() => setEditMode(true)}
-            colorScheme="blue"
-            variant="outline"
-            size="md"
-          >
-            Edit Profile
-          </Button>
+          <EditProfileDrawer>
+            <Button
+              colorScheme="blue"
+              variant="outline"
+              size="md"
+            >
+              Edit Profile
+            </Button>
+          </EditProfileDrawer>
         )}
       </VStack>
     </Box>
