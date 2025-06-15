@@ -11,6 +11,7 @@
 
 import { ChakraProvider } from './chakra-provider'
 import { AuthProvider } from './auth-provider'
+import { ApolloProvider } from './apollo-provider'
 
 /**
  * Props for the Providers component
@@ -26,7 +27,7 @@ interface ProvidersProps {
  * Provider order:
  * 1. ChakraProvider - UI theme and component system
  * 2. AuthProvider - Authentication state management
- * 3. (Future) ApolloProvider - GraphQL client
+ * 3. ApolloProvider - GraphQL client for data fetching
  * 
  * @param {ProvidersProps} props - The component props
  * @returns {JSX.Element} The application wrapped with all providers
@@ -42,7 +43,9 @@ export function Providers({ children }: ProvidersProps) {
   return (
     <ChakraProvider>
       <AuthProvider>
-        {children}
+        <ApolloProvider>
+          {children}
+        </ApolloProvider>
       </AuthProvider>
     </ChakraProvider>
   )
