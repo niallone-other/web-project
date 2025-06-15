@@ -9,7 +9,8 @@
 
 'use client'
 
-import { Box, Container, HStack, Text, Badge } from '@chakra-ui/react'
+import { Box, Container, HStack, Text, Badge, Link } from '@chakra-ui/react'
+import NextLink from 'next/link'
 import { UserInfo } from '@/components/user'
 import { APP_CONFIG } from '@/lib/constants'
 import { animationUtils, brandColors, componentColors } from '@/lib/theme'
@@ -76,17 +77,27 @@ export function Header() {
             </Box>
             
             {/* App Name */}
-            <Box>
+            <Link 
+              as={NextLink} 
+              href="/information" 
+              _hover={{ textDecoration: 'none' }}
+            >
               <Text
                 fontSize="2xl"
                 fontWeight="bold"
                 color="green.400"
                 textShadow="0 0 20px rgba(34, 197, 94, 0.6)"
                 letterSpacing="tight"
+                cursor="pointer"
+                transition="all 0.3s ease"
+                _hover={{
+                  color: 'green.300',
+                  textShadow: '0 0 30px rgba(34, 197, 94, 0.8)'
+                }}
               >
                 {APP_CONFIG.name}
               </Text>
-            </Box>
+            </Link>
             
             {/* Dimension Badge */}
             <Badge

@@ -40,7 +40,7 @@ export function Footer() {
   const handleLogout = () => {
     logout()
     router.push('/auth')
-  }
+  };
   
   return (
     <Box
@@ -56,33 +56,23 @@ export function Footer() {
       zIndex={10}
     >
       <Container size="xl" mx="auto" px={4}>
-        <HStack justify="space-between" wrap="wrap" gap={4}>
-          <Text color="gray.400" fontSize="sm">
-            {APP_CONFIG.copyright}
-          </Text>
-          
-          <HStack gap={4} fontSize="sm" color="gray.400">
-            {user && (
-              <>
-                <Link as={NextLink} href="/profile" color={brandColors.portal.DEFAULT} _hover={{ color: brandColors.portal.dark }}>
-                  Profile
-                </Link>
-                <Box width="1px" height="20px" bg={componentColors.border.dark} />
-                <Button
-                  size="xs"
-                  variant="ghost"
-                  colorScheme="red"
-                  onClick={handleLogout}
-                >
-                  Logout
-                </Button>
-                <Box width="1px" height="20px" bg={componentColors.border.dark} />
-              </>
-            )}
-            <Text fontWeight="medium">
-              Version {APP_CONFIG.version}
-            </Text>
-          </HStack>
+        <HStack justify="flex-end" gap={6} fontSize="sm" color="gray.400">
+          <Text>Version {APP_CONFIG.version}</Text>
+          {user && (
+            <>
+              <Link as={NextLink} href="/profile" color={brandColors.portal.DEFAULT} _hover={{ color: brandColors.portal.dark }}>
+                Profile
+              </Link>
+              <Link 
+                as="button" 
+                onClick={handleLogout} 
+                color={brandColors.portal.DEFAULT} 
+                _hover={{ color: brandColors.portal.dark }}
+              >
+                Logout
+              </Link>
+            </>
+          )}
         </HStack>
       </Container>
     </Box>
