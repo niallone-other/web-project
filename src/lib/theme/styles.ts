@@ -60,6 +60,12 @@ export const textStyles = {
     fontWeight: 'bold',
   },
   
+  headingLarge: {
+    color: componentColors.text.primary,
+    fontWeight: 'bold',
+    fontSize: '3xl',
+  },
+  
   body: {
     color: componentColors.text.secondary,
   },

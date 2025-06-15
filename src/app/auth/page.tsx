@@ -14,7 +14,7 @@ import { useRouter } from 'next/navigation'
 import { Box, Container, VStack, Text } from '@chakra-ui/react'
 import { UserForm } from '@/components/auth'
 import { useAuth } from '@/hooks'
-import { animationUtils, effectStyles } from '@/lib/theme'
+import { animationUtils, effectStyles, textStyles } from '@/lib/theme'
 import type { LoginFormData } from '@/types'
 
 /**
@@ -73,13 +73,13 @@ export default function AuthPage() {
       <Container size="sm" py={8} mx="auto" px={4} position="relative" zIndex={1}>
         <VStack gap={8}>
           <VStack gap={2} textAlign="center">
-            <Text fontSize="3xl" fontWeight="bold">
+            <Text {...textStyles.headingLarge}>
               Welcome to The Portal
             </Text>
-            <Text color="gray.600">
+            <Text {...textStyles.body}>
               Authorised personnel only.
             </Text>
-            <Text color="gray.600">
+            <Text {...textStyles.body}>
               Please authenticate to continue.
             </Text>
           </VStack>
