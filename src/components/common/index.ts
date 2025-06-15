@@ -8,3 +8,4 @@
 
 export * from './footer'
 export * from './dev-tools'
+export * from './pagination'
