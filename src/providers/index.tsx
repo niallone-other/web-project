@@ -12,6 +12,7 @@
 import { ChakraProvider } from './chakra-provider'
 import { AuthProvider } from './auth-provider'
 import { ApolloProvider } from './apollo-provider'
+import { AppLayout } from '@/components/common'
 
 /**
  * Props for the Providers component
@@ -44,7 +45,9 @@ export function Providers({ children }: ProvidersProps) {
     <ChakraProvider>
       <AuthProvider>
         <ApolloProvider>
-          {children}
+          <AppLayout>
+            {children}
+          </AppLayout>
         </ApolloProvider>
       </AuthProvider>
     </ChakraProvider>

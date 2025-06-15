@@ -49,9 +49,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <div style={{ minHeight: '100vh', paddingBottom: '80px' }}>
-            {children}
-          </div>
+          {children}
           <Footer />
         </Providers>
       </body>
