@@ -9,7 +9,9 @@
 
 'use client'
 
-import { Box, Container, Text, HStack } from '@chakra-ui/react'
+import { Box, Container, Text, HStack, Link } from '@chakra-ui/react'
+import NextLink from 'next/link'
+import { useAuth } from '@/hooks'
 
 /**
  * Challenge version constant
@@ -33,6 +35,8 @@ const CHALLENGE_VERSION = '1.0.0'
  * ```
  */
 export function Footer() {
+  const { user } = useAuth()
+  
   return (
     <Box
       as="footer"
@@ -53,7 +57,14 @@ export function Footer() {
           </Text>
           
           <HStack gap={4} fontSize="sm" color="gray.600">
-            <Box width="1px" height="20px" bg="gray.300" />
+            {user && (
+              <>
+                <Link as={NextLink} href="/profile" color="blue.500">
+                  Profile
+                </Link>
+                <Box width="1px" height="20px" bg="gray.300" />
+              </>
+            )}
             <Text fontWeight="medium">
               Version {CHALLENGE_VERSION}
             </Text>
