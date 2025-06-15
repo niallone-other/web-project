@@ -9,7 +9,6 @@
 
 'use client'
 
-import { useState, useEffect } from 'react'
 import {
   Box,
   Text,
@@ -20,6 +19,13 @@ import {
   Button,
   Grid,
   Heading,
+  DialogRoot,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogBody,
+  DialogCloseTrigger,
+  DialogBackdrop,
 } from '@chakra-ui/react'
 import { useQuery } from '@apollo/client'
 import { GET_CHARACTER } from '@/lib/apollo'
@@ -50,6 +56,7 @@ const statusColors = {
  * Character detail modal component
  * 
  * Features:
+ * - Uses Chakra UI Dialog for accessibility
  * - Full character information display
  * - Episode list with details
  * - Location information
@@ -58,7 +65,7 @@ const statusColors = {
  * - Responsive layout
  * 
  * @param {CharacterModalProps} props - The component props
- * @returns {JSX.Element | null} The modal component or null
+ * @returns {JSX.Element} The dialog component
  * 
  * @example
  * ```tsx
@@ -70,81 +77,51 @@ const statusColors = {
  * ```
  */
 export function CharacterModal({ character, isOpen, onClose }: CharacterModalProps) {
-  const [showModal, setShowModal] = useState(false)
-
   // Query for full character details
   const { data, loading } = useQuery<CharacterData>(GET_CHARACTER, {
     variables: { id: character?.id },
     skip: !character?.id || !isOpen,
   })
 
-  // Handle modal visibility
-  useEffect(() => {
-    if (isOpen) {
-      setShowModal(true)
-    } else {
-      // Delay to allow animation
-      const timer = setTimeout(() => setShowModal(false), 300)
-      return () => clearTimeout(timer)
-    }
-  }, [isOpen])
-
-  if (!showModal || !character) {
+  if (!character) {
     return null
   }
 
   const fullCharacter = data?.character || character
 
   return (
-    <>
-      {/* Backdrop */}
-      <Box
-        position="fixed"
-        top={0}
-        left={0}
-        right={0}
-        bottom={0}
-        bg="blackAlpha.600"
-        zIndex={1000}
-        onClick={onClose}
-        opacity={isOpen ? 1 : 0}
-        transition="opacity 0.3s"
-      />
-
-      {/* Modal Content */}
-      <Box
+    <DialogRoot 
+      open={isOpen} 
+      onOpenChange={(e) => !e.open && onClose()}
+      size="lg"
+    >
+      <DialogBackdrop />
+      <DialogContent 
         position="fixed"
         top="50%"
         left="50%"
-        transform={`translate(-50%, -50%) scale(${isOpen ? 1 : 0.95})`}
-        bg="white"
-        borderRadius="lg"
-        boxShadow="2xl"
+        transform="translate(-50%, -50%)"
         maxWidth="600px"
-        width="90%"
         maxHeight="90vh"
         overflow="auto"
-        zIndex={1001}
-        opacity={isOpen ? 1 : 0}
-        transition="all 0.3s"
       >
-        {/* Header */}
-        <Box position="sticky" top={0} bg="white" borderBottomWidth={1} p={4}>
-          <HStack justify="space-between">
-            <Heading size="lg">{fullCharacter.name}</Heading>
+        <DialogHeader>
+          <DialogTitle>{fullCharacter.name}</DialogTitle>
+          <DialogCloseTrigger asChild>
             <Button
               size="sm"
               variant="ghost"
-              onClick={onClose}
+              position="absolute"
+              right={2}
+              top={2}
               aria-label="Close modal"
             >
               ✕
             </Button>
-          </HStack>
-        </Box>
+          </DialogCloseTrigger>
+        </DialogHeader>
 
-        {/* Content */}
-        <Box p={6}>
+        <DialogBody pb={6}>
           <Grid templateColumns={{ base: '1fr', md: '200px 1fr' }} gap={6}>
             {/* Image Column */}
             <VStack align="stretch" gap={4}>
@@ -153,6 +130,7 @@ export function CharacterModal({ character, isOpen, onClose }: CharacterModalPro
                 alt={fullCharacter.name}
                 borderRadius="lg"
                 width="100%"
+                objectFit="cover"
               />
               <Badge
                 colorScheme={statusColors[fullCharacter.status]}
@@ -217,8 +195,8 @@ export function CharacterModal({ character, isOpen, onClose }: CharacterModalPro
               )}
             </VStack>
           </Grid>
-        </Box>
-      </Box>
-    </>
+        </DialogBody>
+      </DialogContent>
+    </DialogRoot>
   )
 }
