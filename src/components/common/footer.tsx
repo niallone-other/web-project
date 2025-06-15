@@ -13,20 +13,17 @@ import { Box, Container, Text, HStack, Link, Button } from '@chakra-ui/react'
 import NextLink from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/hooks'
-
-/**
- * Challenge version constant
- */
-const CHALLENGE_VERSION = '1.0.0'
+import { APP_CONFIG } from '@/lib/constants'
 
 /**
  * Footer component displaying app information
  * 
  * Features:
- * - Displays challenge version
+ * - Displays app version
  * - Responsive layout
  * - Subtle styling that doesn't interfere with content
  * - Fixed positioning at bottom
+ * - Logout functionality for authenticated users
  * 
  * @returns {JSX.Element} The footer component
  * 
@@ -60,7 +57,7 @@ export function Footer() {
       <Container maxW="container.xl">
         <HStack justify="space-between" wrap="wrap" gap={4}>
           <Text color="gray.600" fontSize="sm">
-            © 2025 Web Project
+            {APP_CONFIG.copyright}
           </Text>
           
           <HStack gap={4} fontSize="sm" color="gray.600">
@@ -82,7 +79,7 @@ export function Footer() {
               </>
             )}
             <Text fontWeight="medium">
-              Version {CHALLENGE_VERSION}
+              Version {APP_CONFIG.version}
             </Text>
           </HStack>
         </HStack>

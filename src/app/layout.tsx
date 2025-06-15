@@ -23,8 +23,8 @@ const inter = Inter({ subsets: ["latin"] });
  * Application metadata for SEO and browser display
  */
 export const metadata: Metadata = {
-  title: "Web Project",
-  description: "GQL app with auth",
+  title: "The Portal",
+  description: "Authorized access to interdimensional data",
 };
 
 /**

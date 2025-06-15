@@ -58,10 +58,10 @@ export default function AuthPage() {
         <VStack gap={8}>
           <VStack gap={2} textAlign="center">
             <Text fontSize="3xl" fontWeight="bold">
-              Welcome to Web Project
+              Welcome to The Portal
             </Text>
             <Text color="gray.600">
-              Please enter your details to continue
+              Authorized personnel only. Please authenticate to continue.
             </Text>
           </VStack>
           
