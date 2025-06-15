@@ -9,7 +9,8 @@
 
 'use client'
 
-import { ChakraProvider as ChakraUIProvider, defaultSystem } from '@chakra-ui/react'
+import { ChakraProvider as ChakraUIProvider } from '@chakra-ui/react'
+import { theme } from '@/lib/theme'
 
 /**
  * Props for the ChakraProvider component
@@ -25,8 +26,7 @@ interface ChakraProviderProps {
  * This component must be marked as a client component since Chakra UI
  * uses React Context API which requires client-side rendering.
  * 
- * Note: Chakra UI v3 uses a new theming system. We're using the default system
- * for now and can customise as needed.
+ * Now using a custom Rick and Morty inspired theme for The Portal.
  * 
  * @param {ChakraProviderProps} props - The component props
  * @returns {JSX.Element} The wrapped application with Chakra UI theme
@@ -40,7 +40,7 @@ interface ChakraProviderProps {
  */
 export function ChakraProvider({ children }: ChakraProviderProps) {
   return (
-    <ChakraUIProvider value={defaultSystem}>
+    <ChakraUIProvider value={theme}>
       {children}
     </ChakraUIProvider>
   )
