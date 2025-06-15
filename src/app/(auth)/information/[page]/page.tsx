@@ -2,9 +2,9 @@
  * Information Page with Pagination
  * 
  * Main page displaying paginated character data from Rick and Morty API.
- * Protected by authentication and supports direct URL access to pages.
+ * Now protected by the (auth) route group layout instead of individual AuthGuard.
  * 
- * @module app/information/[page]/page
+ * @module app/(auth)/information/[page]/page
  */
 
 'use client'
@@ -13,7 +13,6 @@ import { useState } from 'react'
 import { useParams } from 'next/navigation'
 import { Container, Heading, VStack, Box, HStack, Text } from '@chakra-ui/react'
 import { useQuery } from '@apollo/client'
-import { AuthGuard } from '@/components/auth'
 import { CharacterGrid, CharacterModal } from '@/components/character'
 import { Pagination } from '@/components/common'
 import { UserInfo } from '@/components/user'
@@ -24,7 +23,7 @@ import type { CharactersData, Character } from '@/types'
  * Information page component with pagination
  * 
  * Features:
- * - Protected by AuthGuard
+ * - Protected by route group layout
  * - URL-based pagination (/information/[page])
  * - Character grid display
  * - Click to open character details
@@ -60,7 +59,7 @@ export default function InformationPage() {
   }
 
   return (
-    <AuthGuard>
+    <>
       <Container maxW="container.xl" py={8}>
         <VStack gap={8} align="stretch">
           {/* Header */}
@@ -104,6 +103,6 @@ export default function InformationPage() {
         isOpen={!!selectedCharacter}
         onClose={handleModalClose}
       />
-    </AuthGuard>
+    </>
   )
 }

@@ -4,7 +4,7 @@
  * Redirects to the first page of information.
  * This ensures /information always shows page 1.
  * 
- * @module app/information/page
+ * @module app/(auth)/information/page
  */
 
 import { redirect } from 'next/navigation'
