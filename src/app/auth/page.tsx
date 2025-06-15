@@ -76,12 +76,6 @@ export default function AuthPage() {
             <Text {...textStyles.headingLarge}>
               Welcome to The Portal
             </Text>
-            <Text {...textStyles.body}>
-              Authorised personnel only.
-            </Text>
-            <Text {...textStyles.body}>
-              Please authenticate to continue.
-            </Text>
           </VStack>
           
           <Box
