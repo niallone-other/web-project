@@ -26,7 +26,7 @@ import { UserInfo } from '@/components/user'
 export default function ProfilePage() {
   return (
     <Box minHeight="calc(100vh - 80px)">
-      <Container size="sm" py={10} mx="auto" px={4}>
+      <Container maxW="container.sm" py={10} mx="auto" px={4}>
         <Box>
           <Heading size="lg" mb={8} color="white">
             My Profile

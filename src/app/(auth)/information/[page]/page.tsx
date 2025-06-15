@@ -59,7 +59,7 @@ export default function InformationPage() {
 
   return (
     <Box minHeight="calc(100vh - 80px)">
-      <Container size="xl" py={8} mx="auto" px={4}>
+      <Container maxW="container.xl" py={8} mx="auto" px={4}>
         <VStack gap={8} align="stretch">
           {/* Page Header */}
           <Box>

@@ -93,17 +93,17 @@ export function CharacterCard({ character, onClick }: CharacterCardProps) {
       
       {/* Character Info */}
       <VStack align="stretch" p={4} gap={2}>
-        <Text fontWeight="bold" fontSize="lg" noOfLines={1} color={componentColors.text.primary}>
+        <Text fontWeight="bold" fontSize="lg" lineClamp={1} color={componentColors.text.primary}>
           {character.name}
         </Text>
         
         <HStack justify="space-between" align="flex-start">
           <VStack align="start" gap={1} flex={1}>
-            <Text fontSize="sm" color={componentColors.text.secondary} noOfLines={1}>
+            <Text fontSize="sm" color={componentColors.text.secondary} lineClamp={1}>
               {character.species}
               {character.type && ` - ${character.type}`}
             </Text>
-            <Text fontSize="xs" color={componentColors.text.muted} noOfLines={1}>
+            <Text fontSize="xs" color={componentColors.text.muted} lineClamp={1}>
               {character.location.name}
             </Text>
           </VStack>

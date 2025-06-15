@@ -55,7 +55,7 @@ export function Footer() {
       py={4}
       zIndex={10}
     >
-      <Container size="xl" mx="auto" px={4}>
+      <Container maxW="container.xl" mx="auto" px={4}>
         <HStack justify="flex-end" gap={6} fontSize="sm" color="gray.400">
           <Text>Version {APP_CONFIG.version}</Text>
           {user && (
