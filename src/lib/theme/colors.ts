@@ -48,6 +48,8 @@ export const componentColors = {
     secondary: 'gray.700',
     tertiary: 'gray.600',
     dark: 'gray.900',
+    // Light mode backgrounds
+    lightInput: 'gray.50',
   },
   
   // Text colors
@@ -56,6 +58,9 @@ export const componentColors = {
     secondary: 'gray.300',
     muted: 'gray.400',
     disabled: 'gray.500',
+    // Light mode text
+    lightPrimary: 'gray.700',
+    lightSecondary: 'gray.600',
   },
   
   // Border colors

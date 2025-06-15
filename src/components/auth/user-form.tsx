@@ -114,15 +114,10 @@ export function UserForm({
   return (
     <Box as="form" onSubmit={handleSubmit} width="100%">
       <VStack gap={6} align="stretch">
-        {title && (
-          <Heading size="lg" textAlign="center" {...textStyles.heading}>
-            {title}
-          </Heading>
-        )}
         
         <VStack gap={4}>
           <Box width="100%">
-            <Text mb={2} fontWeight="medium" color={componentColors.text.secondary}>
+            <Text mb={2} fontWeight="medium" color={componentColors.text.lightPrimary}>
               Username
             </Text>
             <Input
@@ -133,9 +128,9 @@ export function UserForm({
               disabled={isLoading}
               autoComplete="username"
               px={4}
-              bg={componentColors.background.tertiary}
+              bg={componentColors.background.lightInput}
               borderColor={componentColors.border.default}
-              color={componentColors.text.primary}
+              color={componentColors.text.lightPrimary}
               _hover={{
                 borderColor: componentColors.border.hover
               }}
@@ -155,7 +150,7 @@ export function UserForm({
           </Box>
           
           <Box width="100%">
-            <Text mb={2} fontWeight="medium" color={componentColors.text.secondary}>
+            <Text mb={2} fontWeight="medium" color={componentColors.text.lightPrimary}>
               Job Title
             </Text>
             <Input
@@ -166,9 +161,9 @@ export function UserForm({
               disabled={isLoading}
               autoComplete="organization-title"
               px={4}
-              bg={componentColors.background.tertiary}
+              bg={componentColors.background.lightInput}
               borderColor={componentColors.border.default}
-              color={componentColors.text.primary}
+              color={componentColors.text.lightPrimary}
               _hover={{
                 borderColor: componentColors.border.hover
               }}
