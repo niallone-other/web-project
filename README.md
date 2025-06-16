@@ -81,11 +81,3 @@ src/
 ## API
 
 The application uses the [Rick and Morty GraphQL API](https://rickandmortyapi.com/graphql) for character data.
-
-## Environment
-
-No environment variables required - the app uses the public Rick and Morty API.
-
-## License
-
-MIT
